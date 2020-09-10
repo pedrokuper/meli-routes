@@ -1,15 +1,16 @@
 import React from "react";
 
-function Item() {
+function Item(props) {
+  console.log(props);
   return (
     <>
       <div>
         <div>
-          <img src="https://http2.mlstatic.com/sandwichera-atma-antiadherente-sm8911e-D_NQ_NP_692458-MLA31120768465_062019-O.webp" />
+          <img src={props.img} />
         </div>
         <div>
-          <p>$2000</p>
-          <p>Nombre</p>
+          <p>{props.price}</p>
+          <p>{props.title}</p>
         </div>
       </div>
     </>

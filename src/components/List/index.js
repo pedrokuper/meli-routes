@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Item from "../Item";
 
 function List(props) {
-  const [items, setItems] = useState([]);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     async function getData() {
@@ -11,19 +11,24 @@ function List(props) {
       );
       const jsonData = await rawData.json();
 
-      setItems(jsonData.results);
+      setProducts(jsonData.results);
     }
-
+    console.log(products);
     getData();
   }, [props.busqueda]);
 
-  console.log(items);
   return (
     <div>
-      {items.map((item, key) => {
-        return <p>{item.title}</p>;
+      {products.map((product, key) => {
+        return (
+          <Item
+            key={key}
+            img={product.thumbnail}
+            price={product.price}
+            title={product.title}
+          />
+        );
       })}
-      {/* <Item /> */}
     </div>
   );
 }

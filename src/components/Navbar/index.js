@@ -15,7 +15,7 @@ function Navbar(props) {
         src="https://static.mlstatic.com/org-img/homesnw/img/ml-logo-small.png"
       />
       <input
-        onKeyPress={handleChange}
+        onChange={handleChange}
         type="text"
         placeholder="Buscar productos, marcas y más"
       />
