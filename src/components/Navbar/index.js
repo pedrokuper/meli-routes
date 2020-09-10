@@ -3,7 +3,9 @@ import "./style.scss";
 
 function Navbar(props) {
   function handleChange(e) {
+    // if (e.charCode == "13") {
     props.handleCallback(e.target.value);
+    // }
   }
 
   return (
@@ -13,7 +15,7 @@ function Navbar(props) {
         src="https://static.mlstatic.com/org-img/homesnw/img/ml-logo-small.png"
       />
       <input
-        onChange={handleChange}
+        onKeyPress={handleChange}
         type="text"
         placeholder="Buscar productos, marcas y más"
       />
