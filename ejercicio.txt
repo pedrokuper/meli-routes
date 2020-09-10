@@ -1,0 +1,6 @@
+-Armar pantalla inicial meli 
+
+- Armar pantalla de busqueda de meli
+
+A medida que buscamos, se filtran los rsultados.
+
