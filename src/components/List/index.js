@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Item from "../Item";
+import "./style.scss";
 
 function List(props) {
   const [products, setProducts] = useState([]);
@@ -7,7 +8,7 @@ function List(props) {
   useEffect(() => {
     async function getData() {
       const rawData = await fetch(
-        `https://api.mercadolibre.com/sites/MLA/search?q=${props.busqueda}&limit=5`
+        `https://api.mercadolibre.com/sites/MLA/search?q=${props.busqueda}&limit=15`
       );
       const jsonData = await rawData.json();
 
@@ -18,15 +19,17 @@ function List(props) {
   }, [props.busqueda]);
 
   return (
-    <div>
+    <div className="mainContainer">
       {products.map((product, key) => {
         return (
-          <Item
-            key={key}
-            img={product.thumbnail}
-            price={product.price}
-            title={product.title}
-          />
+          <a href={product.permalink}>
+            <Item
+              key={key}
+              img={product.thumbnail}
+              price={product.price}
+              title={product.title}
+            />
+          </a>
         );
       })}
     </div>
